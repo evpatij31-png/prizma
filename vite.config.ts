@@ -93,5 +93,12 @@ export default defineConfig({
     host: '127.0.0.1',
     port: 5173,
     strictPort: false,
+    watch: {
+      // Never watch the Rust build tree. Cargo writes executables there while
+      // compiling, and the watcher dies on them with EBUSY — taking the dev
+      // server, and `tauri dev` with it, down mid-build. Nothing in there is
+      // a frontend source anyway.
+      ignored: ['**/src-tauri/**'],
+    },
   },
 })
