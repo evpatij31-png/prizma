@@ -8,7 +8,11 @@ dist-ssr/
 # first build; the config itself is tracked.
 src-tauri/target/
 src-tauri/gen/
-src-tauri/Cargo.lock
+
+# src-tauri/Cargo.lock IS tracked. For an application — as opposed to a
+# library — the lockfile pins exact dependency versions, so another machine
+# builds the same thing. That is the whole point of being able to continue
+# this work elsewhere.
 
 # Capacitor creates these from capacitor.config.ts with `cap add`. They are
 # regenerable and large; the config is tracked instead.
