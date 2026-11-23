@@ -1,0 +1,34 @@
+# Dependencies and build output
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Tauri build artefacts. `src-tauri/gen/` is generated from tauri.conf.json on
+# first build; the config itself is tracked.
+src-tauri/target/
+src-tauri/gen/
+src-tauri/Cargo.lock
+
+# Capacitor creates these from capacitor.config.ts with `cap add`. They are
+# regenerable and large; the config is tracked instead.
+/ios/
+/android/
+
+# Editor and OS noise
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Local-only session settings. `.claude/launch.json` IS tracked: it tells any
+# checkout how to start the dev and preview servers.
+.claude/settings.local.json
+
+# Generated icons are tracked on purpose: `npm run icons` reproduces them
+# byte-for-byte, but a fresh checkout should build without running it first.
+
+# TypeScript incremental build cache
+*.tsbuildinfo

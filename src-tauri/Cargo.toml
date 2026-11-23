@@ -1,0 +1,23 @@
+[package]
+name = "prizma"
+version = "0.1.0"
+description = "Prizma — яркий календарь, работающий без сети"
+edition = "2021"
+rust-version = "1.77"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+# The whole point of the desktop shell: requests made here are not subject to
+# CORS, so the feeds a browser refuses to read become readable.
+tauri-plugin-http = "2"
+tauri-plugin-notification = "2"
+
+[profile.release]
+codegen-units = 1
+lto = true
+opt-level = "s"
+panic = "abort"
+strip = true

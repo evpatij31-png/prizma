@@ -1,0 +1,15 @@
+# One line ending in the repository, whatever the machine.
+#
+# This project is meant to be built on Windows (desktop), macOS (iOS) and
+# Linux (CI). Without this, a checkout on Windows rewrites every file to CRLF
+# and the next commit from a Mac shows all 9000 lines as changed.
+* text=auto eol=lf
+
+# Binary: never touched.
+*.png binary
+*.ico binary
+*.woff2 binary
+
+# An .ics file is read byte-for-byte by the parser tests, and RFC 5545
+# requires CRLF — so these must not be normalised.
+*.ics -text

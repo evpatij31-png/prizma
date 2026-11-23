@@ -1,0 +1,19 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Ровно те права, без которых приложение не работает, и ни одним больше. http:default — чтение лент календарей, единственная причина, по которой десктопной обёртке нужна сеть: запрос из нативного слоя не подчиняется CORS, и ленты Google и iCloud становятся читаемыми; список хостов намеренно узкий. notification — напоминания при закрытом окне. Прав на файлы здесь НЕТ: импорт и экспорт идут обычным выбором файла и обычной загрузкой внутри webview, как в браузере. Если на первом запуске окажется, что WebView2 не сохраняет файл, права на диалог добавятся вместе с настоящей реализацией и проверкой, а не заранее.",
+  "windows": ["main"],
+  "permissions": [
+    "core:default",
+    {
+      "identifier": "http:default",
+      "allow": [
+        { "url": "https://calendar.google.com/*" },
+        { "url": "https://*.icloud.com/*" },
+        { "url": "https://outlook.office365.com/*" },
+        { "url": "https://outlook.live.com/*" }
+      ]
+    },
+    "notification:default"
+  ]
+}
